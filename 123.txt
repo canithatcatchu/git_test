@@ -1,2 +1,201 @@
-123456789
-sfdghfjkkfghdsfgfhgj
+package com.example.ntubimd.newcalculate;
+
+import android.net.Uri;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.appindexing.Thing;
+import com.google.android.gms.common.api.GoogleApiClient;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    TextView tv;
+    Button bt0, bt1, bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9, btAddition, btSubtraction, btMultiplication, btDivision, btDot, btAC, btIs;
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+
+        tv = (TextView) findViewById(R.id.tv);
+        bt0 = (Button) findViewById(R.id.button);
+        bt1 = (Button) findViewById(R.id.button2);
+        bt2 = (Button) findViewById(R.id.button3);
+        bt3 = (Button) findViewById(R.id.button4);
+        bt4 = (Button) findViewById(R.id.button5);
+        bt5 = (Button) findViewById(R.id.button6);
+        bt6 = (Button) findViewById(R.id.button7);
+        bt7 = (Button) findViewById(R.id.button8);
+        bt8 = (Button) findViewById(R.id.button9);
+        bt9 = (Button) findViewById(R.id.button10);
+        btAddition = (Button) findViewById(R.id.buttonAddition);
+        btSubtraction = (Button) findViewById(R.id.buttonSubtraction);
+        btMultiplication = (Button) findViewById(R.id.buttonMultiplication);
+        btDivision = (Button) findViewById(R.id.buttonDivision);
+        btDot = (Button) findViewById(R.id.buttonDot);
+        btAC = (Button) findViewById(R.id.buttonAC);
+        btIs = (Button) findViewById(R.id.buttonIs);
+
+
+        bt0.setOnClickListener(this);
+        bt1.setOnClickListener(this);
+        bt2.setOnClickListener(this);
+        bt3.setOnClickListener(this);
+        bt4.setOnClickListener(this);
+        bt5.setOnClickListener(this);
+        bt6.setOnClickListener(this);
+        bt7.setOnClickListener(this);
+        bt8.setOnClickListener(this);
+        bt9.setOnClickListener(this);
+        btAddition.setOnClickListener(this);
+        btSubtraction.setOnClickListener(this);
+        btMultiplication.setOnClickListener(this);
+        btDivision.setOnClickListener(this);
+        btDot.setOnClickListener(this);
+        btAC.setOnClickListener(this);
+        btIs.setOnClickListener(this);
+
+
+        tv.setText("");
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+    }
+
+    @Override
+    public void onClick(View view) {
+        int id = view.getId();
+        int value = 0, ASMD = 0, value2, equal;
+
+        switch (id) {
+            case R.id.button:
+                tv.setText(tv.getText().toString() + "0");
+                break;
+            case R.id.button2:
+                tv.setText(tv.getText().toString() + "1");
+                break;
+            case R.id.button3:
+                tv.setText(tv.getText().toString() + "2");
+                break;
+            case R.id.button4:
+                tv.setText(tv.getText().toString() + "3");
+                break;
+            case R.id.button5:
+                tv.setText(tv.getText().toString() + "4");
+                break;
+            case R.id.button6:
+                tv.setText(tv.getText().toString() + "5");
+                break;
+            case R.id.button7:
+                tv.setText(tv.getText().toString() + "6");
+                break;
+            case R.id.button8:
+                tv.setText(tv.getText().toString() + "7");
+                break;
+            case R.id.button9:
+                tv.setText(tv.getText().toString() + "8");
+                break;
+            case R.id.button10:
+                tv.setText(tv.getText().toString() + "9");
+                break;
+
+            case R.id.buttonAddition:
+                value = Integer.parseInt(tv.getText().toString());
+                ASMD = 1;
+                tv.setText("");
+
+                break;
+
+            case R.id.buttonSubtraction:
+                value = Integer.parseInt(tv.getText().toString());
+                ASMD = 2;
+                tv.setText("");
+                break;
+
+            case R.id.buttonMultiplication:
+                value = Integer.parseInt(tv.getText().toString());
+                ASMD = 3;
+                tv.setText("");
+                break;
+
+            case R.id.buttonDivision:
+                value = Integer.parseInt(tv.getText().toString());
+                ASMD = 4;
+                tv.setText("");
+                break;
+            case R.id.buttonIs:
+                value2 = Integer.parseInt(tv.getText().toString());
+                switch (ASMD) {
+                    case 1:
+                        equal = value + value2;
+                        tv.setText(equal + "");
+                        break;
+                    case 2:
+                        equal = value - value2;
+                        tv.setText(equal + "");
+                        break;
+                    case 3:
+                        equal = value * value2;
+                        tv.setText(equal + "");
+                        break;
+                    case 4:
+                        equal = value / value2;
+                        tv.setText(equal + "");
+                        break;
+                }
+
+
+        }
+
+
+    }
+
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    public Action getIndexApiAction() {
+        Thing object = new Thing.Builder()
+                .setName("Main Page") // TODO: Define a title for the content shown.
+                // TODO: Make sure this auto-generated URL is correct.
+                .setUrl(Uri.parse("http://[ENTER-YOUR-URL-HERE]"))
+                .build();
+        return new Action.Builder(Action.TYPE_VIEW)
+                .setObject(object)
+                .setActionStatus(Action.STATUS_TYPE_COMPLETED)
+                .build();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client.connect();
+        AppIndex.AppIndexApi.start(client, getIndexApiAction());
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        AppIndex.AppIndexApi.end(client, getIndexApiAction());
+        client.disconnect();
+    }
+}
